@@ -1,0 +1,1 @@
+xcopy "C:\development\OPEN DENTAL SUBVERSION\VoiceCommand\bin\Debug\VoiceCommand.dll" "C:\development\OPEN DENTAL SUBVERSION\head\OpenDental\bin\Debug" /Y
