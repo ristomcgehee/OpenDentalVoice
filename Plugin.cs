@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Windows.Forms;
 using OpenDentBusiness;
 using OpenDental;
 
 namespace VoiceCommand {//The namespace for this class must match the dll filename, including capitalization.  All other classes will typically belong to the same namespace too, but that's not a requirement.
 	/// <summary>Required class.  Don't change the name.</summary>
 	public class Plugin : PluginBase {
-
-		public override bool HookMethod(object sender,string hookName,params object[] parameters) {//required method
-			switch(hookName) {				
-				default:
-					return false;//this plugin does not implement the particular hook passed in.
-			}
-		}
-
+		
 		public override bool HookAddCode(object sender,string hookName,params object[] parameters) {//required method
 			switch(hookName) {
 				case "FormPerio.Load_end":
@@ -26,6 +16,12 @@ namespace VoiceCommand {//The namespace for this class must match the dll filena
 			}
 		}
 
+		public override void HookException(Exception e) {
+			Logging.LogException(e);
+			MsgBox.Show(LanThis,"There was an error with the Voice Command plugin. Please update to the newest version.");
+		}
+
+		public static string LanThis="VoiceCommandPlugin";
 	}
 }
 
