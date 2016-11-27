@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenDental", "..\head\OpenD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenDentBusiness", "..\head\OpenDentBusiness\OpenDentBusiness.csproj", "{3D0FC76E-803C-4DE2-BDB1-47D63A4E2357}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceCommand", "..\VoiceCommand.csproj", "{8C1AF5E7-F70D-4EF0-B906-8C30B28AE482}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceCommand", "VoiceCommand.csproj", "{8C1AF5E7-F70D-4EF0-B906-8C30B28AE482}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,18 +19,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Debug|x86.ActiveCfg = Debug|x86
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Debug|x86.Build.0 = Debug|x86
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.LinuxRelease|Any CPU.ActiveCfg = Release|Any CPU
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.LinuxRelease|Any CPU.Build.0 = Release|Any CPU
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.LinuxRelease|x86.ActiveCfg = Release|x86
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.LinuxRelease|x86.Build.0 = Release|x86
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Release|x86.ActiveCfg = Release|x86
-		{B4466E32-9259-4719-8D30-4400DC5095EE}.Release|x86.Build.0 = Release|x86
 		{8136317D-C936-49B6-9E31-D90F02D2F207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8136317D-C936-49B6-9E31-D90F02D2F207}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8136317D-C936-49B6-9E31-D90F02D2F207}.Debug|x86.ActiveCfg = Debug|x86

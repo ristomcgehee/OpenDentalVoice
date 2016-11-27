@@ -4,15 +4,19 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Speech.Recognition;
+using System.Speech.Synthesis;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VoiceCommand {
 	public abstract class VoiceCommandAbs {
-		protected static SpeechRecognitionEngine RecEngine=new SpeechRecognitionEngine();
+		protected SpeechRecognitionEngine RecEngine=new SpeechRecognitionEngine();
+		protected SpeechSynthesizer Synth=new SpeechSynthesizer();
 		protected abstract VoiceCommandArea ProgramArea { get; }
 		protected bool IsListening;
+		protected bool IsGivingFeedback=true;
 		
 		public virtual void InitializeListening() {
 			Choices commands=new Choices();
@@ -28,13 +32,17 @@ namespace VoiceCommand {
 			RecEngine.SetInputToDefaultAudioDevice();
 			RecEngine.RecognizeAsync(RecognizeMode.Multiple);
 			RecEngine.SpeechRecognized+=RecEngine_SpeechRecognized;
+			Synth.SetOutputToDefaultAudioDevice();
+			Synth.SelectVoiceByHints(VoiceGender.Female);
 		}
 
 		protected virtual void RecEngine_SpeechRecognized(object sender,SpeechRecognizedEventArgs e) {
 			VoiceCommand voiceCommand=CommandList.Commands.FirstOrDefault(x => x.Commands.Contains(e.Result.Text));
 			if(voiceCommand==null) {
-				MsgBox.Show("VoicePlugin","Command not recognized");
 				return;
+			}
+			if(e.Result.Confidence<0.8) {
+				voiceCommand=new VoiceCommand { Action=VoiceCommandAction.DidntGetThat };
 			}
 			if(voiceCommand.Action==VoiceCommandAction.StartListening) {
 				IsListening=true;
@@ -48,7 +56,33 @@ namespace VoiceCommand {
 			ExecuteVoiceCommand(voiceCommand.Action);
 		}
 
-		protected virtual void ExecuteVoiceCommand(VoiceCommandAction action) {	}
+		protected virtual void ExecuteVoiceCommand(VoiceCommandAction action) {
+			string response="";
+			switch(action) {
+				case VoiceCommandAction.GiveFeedback:
+					IsGivingFeedback=true;
+					response="Giving feedback";
+					break;
+				case VoiceCommandAction.StopGivingFeedback:
+					IsGivingFeedback=false;
+					response="No longer giving feedback";
+					Synth.Speak(response);
+					break;
+				case VoiceCommandAction.DidntGetThat:
+					response="I didn't get that.";
+					break;
+			}
+			SayResponse(response);
+		}
+
+		protected void SayResponse(string response,int pauseBefore=0) {
+			if(!string.IsNullOrEmpty(response) && IsGivingFeedback) {
+				Thread.Sleep(pauseBefore);
+				IsListening=false;
+				Synth.Speak(response);
+				IsListening=true;
+			}
+		}
 
 		protected virtual void AddMicButton(Control control,Point point) {
 			OpenDental.UI.Button butMic=new OpenDental.UI.Button();

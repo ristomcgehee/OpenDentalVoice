@@ -49,13 +49,16 @@ namespace VoiceCommand {
 		Suppuration,
 		Plaque,
 		Backspace,
-		Skip,
+		SkipToTooth,
 		Left,
 		Right,
 		Delete,
 		CopyPrevious,
 		StartListening,
 		StopListening,
+		GiveFeedback,
+		StopGivingFeedback,
+		DidntGetThat,
 	}
 
 	[Flags]

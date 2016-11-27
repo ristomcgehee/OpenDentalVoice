@@ -9,6 +9,7 @@ namespace VoiceCommand {
 		public static List<VoiceCommand> Commands {
 			get {
 				return new List<VoiceCommand> {
+					#region Global
 					new VoiceCommand {
 						Commands=new List<string> {
 							"hey open dental",
@@ -24,6 +25,29 @@ namespace VoiceCommand {
 						Action=VoiceCommandAction.StopListening,
 						Area=VoiceCommandArea.Global
 					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"give feedback",
+							"turn feedback on"
+						},
+						Action=VoiceCommandAction.GiveFeedback,
+						Area=VoiceCommandArea.Global
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"stop giving feedback",
+							"turn feedback off"
+						},
+						Action=VoiceCommandAction.StopGivingFeedback,
+						Area=VoiceCommandArea.Global
+					},
+					new VoiceCommand {
+						Commands=new List<string> {	},
+						Action=VoiceCommandAction.DidntGetThat,
+						Area=VoiceCommandArea.Global
+					},
+					#endregion Global
+					#region FormOpenDental
 					new VoiceCommand {
 						Commands=new List<string> {
 							"select patient",
@@ -127,6 +151,8 @@ namespace VoiceCommand {
 						Action=VoiceCommandAction.OpenPerioChart,
 						Area=VoiceCommandArea.FormOpenDental
 					},
+					#endregion FormOpenDental
+					#region PerioChart
 					new VoiceCommand {
 						Commands=new List<string> {
 							"add perio chart",
@@ -310,7 +336,14 @@ namespace VoiceCommand {
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"back",
+							"suppuration"
+						},
+						Action=VoiceCommandAction.Suppuration,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							//"back", //This got confused with 'five' too often.
 							"backspace"
 						},
 						Action=VoiceCommandAction.Backspace,
@@ -320,7 +353,7 @@ namespace VoiceCommand {
 						Commands=new List<string> {
 							"skip"
 						},
-						Action=VoiceCommandAction.Skip,
+						Action=VoiceCommandAction.SkipToTooth,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
@@ -352,6 +385,9 @@ namespace VoiceCommand {
 						Action=VoiceCommandAction.CopyPrevious,
 						Area=VoiceCommandArea.PerioChart
 					},
+
+
+#endregion PerioChart
 				};
 			}
 		}
