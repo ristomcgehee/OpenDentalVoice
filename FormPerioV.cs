@@ -13,6 +13,24 @@ namespace VoiceCommand {
 			}
 		}
 		private int _curToothNum=1;
+		private int _selectedExam {
+			get {
+				return ((ContrPerio)_formPerio.Controls.Find("gridP",true)[0]).SelectedExam;
+			}
+		}
+		private Point _curCell {
+			get {
+				ContrPerio contrPerio=(ContrPerio)_formPerio.Controls.Find("gridP",true)[0];
+				return (Point)typeof(ContrPerio).GetField("CurCell",BindingFlags.NonPublic|BindingFlags.Instance)
+					.GetValue(contrPerio);
+			}
+			set {
+				ContrPerio contrPerio=(ContrPerio)_formPerio.Controls.Find("gridP",true)[0];
+				MethodInfo dynMethod=contrPerio.GetType().GetMethod("SetNewCell",
+					BindingFlags.NonPublic|BindingFlags.Instance);
+				dynMethod.Invoke(contrPerio,new object[] { value.X,value.Y });
+			}
+		}
 
 		public FormPerioV(FormPerio sender) { 
 			_formPerio=sender;
@@ -203,7 +221,53 @@ namespace VoiceCommand {
 					but.PerformClick();
 					response=action.ToString();
 					break;
-				default:
+				case VoiceCommandAction.SkipToToothOneFacial:
+					_curCell=new Point(1,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothTwoFacial:
+					_curCell=new Point(4,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothThreeFacial:
+					_curCell=new Point(7,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFourFacial:
+					_curCell=new Point(10,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFiveFacial:
+					_curCell=new Point(13,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothSixFacial:
+					_curCell=new Point(16,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothSevenFacial:
+					_curCell=new Point(19,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothEightFacial:
+					_curCell=new Point(22,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothNineFacial:
+					_curCell=new Point(25,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothTenFacial:
+					_curCell=new Point(28,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothElevenFacial:
+					_curCell=new Point(31,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothTwelveFacial:
+					_curCell=new Point(34,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothThirteenFacial:
+					_curCell=new Point(37,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFourteenFacial:
+					_curCell=new Point(40,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFifteenFacial:
+					_curCell=new Point(43,6-Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothSixteenFacial:
+					_curCell=new Point(46,6-Math.Min(6,_selectedExam+1));
 					break;
 			}
 			SayResponse(response);
@@ -220,21 +284,18 @@ namespace VoiceCommand {
 		}
 
 		private PerioLocation GetPerioLocation() {
-			ContrPerio contrPerio=(ContrPerio)_formPerio.Controls.Find("gridP",true)[0];
 			PerioLocation perioLoc=new PerioLocation();
-			Point curCell=(Point)typeof(ContrPerio).GetField("CurCell",BindingFlags.NonPublic|BindingFlags.Instance)
-				.GetValue(contrPerio);
-			if(curCell.Y>=13 && curCell.Y<=30) {
+			if(_curCell.Y>=13 &&_curCell.Y<=30) {
 				perioLoc.Surface=PerioSurface.Labial;
 			}
 			else {
 				perioLoc.Surface=PerioSurface.Facial;
 			}
-			if(curCell.Y<=20) {
-				perioLoc.ToothNum=(curCell.X+2)/3;
+			if(_curCell.Y<=20) {
+				perioLoc.ToothNum=(_curCell.X+2)/3;
 			}
 			else {
-				perioLoc.ToothNum=33-(curCell.X+2)/3;
+				perioLoc.ToothNum=33-(_curCell.X+2)/3;
 			}
 
 
