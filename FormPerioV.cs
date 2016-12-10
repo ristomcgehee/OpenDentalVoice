@@ -12,7 +12,8 @@ namespace VoiceCommand {
 				return VoiceCommandArea.PerioChart;
 			}
 		}
-		private int _curToothNum=1;
+		private PerioLocation _curLocation;
+		private PerioLocation _prevLocation;
 		private int _selectedExam {
 			get {
 				return ((ContrPerio)_formPerio.Controls.Find("gridP",true)[0]).SelectedExam;
@@ -35,6 +36,7 @@ namespace VoiceCommand {
 		public FormPerioV(FormPerio sender) { 
 			_formPerio=sender;
 			AddMicButton(_formPerio,new Point(12,300));
+			_curLocation=GetPerioLocation();
 #if DEBUG
 			IsListening=true;
 #endif
@@ -269,18 +271,110 @@ namespace VoiceCommand {
 				case VoiceCommandAction.SkipToToothSixteenFacial:
 					_curCell=new Point(46,6-Math.Min(6,_selectedExam+1));
 					break;
+
+
+
+				case VoiceCommandAction.SkipToToothOneLabial:
+					_curCell=new Point(3,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothTwoLabial:
+					_curCell=new Point(6,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothThreeLabial:
+					_curCell=new Point(9,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFourLabial:
+					_curCell=new Point(12,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFiveLabial:
+					_curCell=new Point(15,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothSixLabial:
+					_curCell=new Point(18,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothSevenLabial:
+					_curCell=new Point(21,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothEightLabial:
+					_curCell=new Point(24,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothNineLabial:
+					_curCell=new Point(27,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothTenLabial:
+					_curCell=new Point(30,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothElevenLabial:
+					_curCell=new Point(33,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothTwelveLabial:
+					_curCell=new Point(36,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothThirteenLabial:
+					_curCell=new Point(39,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFourteenLabial:
+					_curCell=new Point(42,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothFifteenLabial:
+					_curCell=new Point(43,14+Math.Min(6,_selectedExam+1));
+					break;
+				case VoiceCommandAction.SkipToToothSixteenLabial:
+					_curCell=new Point(46,14+Math.Min(6,_selectedExam+1));
+					break;
 			}
 			SayResponse(response);
+			SetCurLocation();
 			SayResponse(ToothNumIfChanged(),200);
+			SetAutoAdvance();
+		}
+
+		private void SetCurLocation() {
+			_prevLocation=_curLocation.Copy();
+			_curLocation=GetPerioLocation();
 		}
 
 		private string ToothNumIfChanged() {
-			int newToothNum=GetPerioLocation().ToothNum;
-			if(_curToothNum != newToothNum) {
-				_curToothNum=newToothNum;
-				return "Tooth "+newToothNum+" ";
+			if(_prevLocation != null && _prevLocation.ToothNum != _curLocation.ToothNum) {
+				return "Tooth "+_curLocation.ToothNum+" ";
 			}
 			return "";
+		}
+
+		private void SetAutoAdvance() {
+			if(_prevLocation==null) {
+				return;
+			}
+			if(_prevLocation.ToothNum<=16 && _prevLocation.Surface==PerioSurface.Facial
+				&& _curLocation.ToothNum<=16 && _curLocation.Surface==PerioSurface.Labial) 
+			{
+				ClickAdvanceRight();
+			}
+			if(_prevLocation.ToothNum<=16 && _prevLocation.Surface==PerioSurface.Labial
+				&& _curLocation.ToothNum<=16 && _curLocation.Surface==PerioSurface.Facial) 
+			{
+				ClickAdvanceLeft();
+			}
+		}
+
+		private void ClickAdvanceLeft() {
+			MethodInfo dynMethod=_formPerio.GetType().GetMethod("radioLeft_Click",
+				BindingFlags.NonPublic|BindingFlags.Instance);
+			dynMethod.Invoke(_formPerio,new object[] { _formPerio,new EventArgs() });
+			RadioButton radioLeft=(RadioButton)_formPerio.Controls.Find("radioLeft",true)[0];
+			radioLeft.Checked=true;
+			RadioButton radioRight=(RadioButton)_formPerio.Controls.Find("radioRight",true)[0];
+			radioRight.Checked=false;
+		}
+
+		private void ClickAdvanceRight() {
+			MethodInfo dynMethod=_formPerio.GetType().GetMethod("radioRight_Click",
+				BindingFlags.NonPublic|BindingFlags.Instance);
+			dynMethod.Invoke(_formPerio,new object[] { _formPerio,new EventArgs() });
+			RadioButton radioLeft=(RadioButton)_formPerio.Controls.Find("radioLeft",true)[0];
+			radioLeft.Checked=false;
+			RadioButton radioRight=(RadioButton)_formPerio.Controls.Find("radioRight",true)[0];
+			radioRight.Checked=true;
 		}
 
 		private PerioLocation GetPerioLocation() {
@@ -308,6 +402,10 @@ namespace VoiceCommand {
 			public int ProbingPosition;
 			public PerioSurface Surface;
 			public MeasurementType MeasureType;
+
+			public PerioLocation Copy() {
+				return (PerioLocation)MemberwiseClone();
+			}
 		}
 
 		private enum PerioSurface {

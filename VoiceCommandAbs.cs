@@ -15,8 +15,18 @@ namespace VoiceCommand {
 		protected SpeechRecognitionEngine RecEngine=new SpeechRecognitionEngine();
 		protected SpeechSynthesizer Synth=new SpeechSynthesizer();
 		protected abstract VoiceCommandArea ProgramArea { get; }
-		protected bool IsListening;
+		protected bool IsListening {
+			get {
+				return _isListening;
+			}
+			set {
+				_isListening=value;
+				labelListening.Visible=value;
+			}
+		}
 		protected bool IsGivingFeedback=true;
+		private Label labelListening;
+		private bool _isListening;
 		
 		public virtual void InitializeListening() {
 			Choices commands=new Choices();
@@ -78,9 +88,9 @@ namespace VoiceCommand {
 		protected void SayResponse(string response,int pauseBefore=0) {
 			if(!string.IsNullOrEmpty(response) && IsGivingFeedback) {
 				Thread.Sleep(pauseBefore);
-				IsListening=false;
+				_isListening=false;
 				Synth.Speak(response);
-				IsListening=true;
+				_isListening=true;
 			}
 		}
 
@@ -92,6 +102,11 @@ namespace VoiceCommand {
 			butMic.Size=new Size(34,34);
 			butMic.Click+=butMic_Click;
 			control.Controls.Add(butMic);
+			labelListening=new Label();
+			labelListening.Text="Listening";
+			labelListening.ForeColor=Color.LimeGreen;
+			labelListening.Location=new Point(point.X+36,point.Y+10);
+			control.Controls.Add(labelListening);
 		}
 
 		protected void butMic_Click(object sender,EventArgs e) {

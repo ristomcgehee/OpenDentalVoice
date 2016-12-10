@@ -18,7 +18,7 @@ namespace VoiceCommand {//The namespace for this class must match the dll filena
 
 		public override void HookException(Exception e) {
 			Logging.LogException(e);
-			MsgBox.Show(LanThis,"There was an error with the Voice Command plugin. Please update to the newest version.");
+			MsgBox.Show(LanThis,"There was an error with the Voice Command plugin.");
 		}
 
 		public static string LanThis="VoiceCommandPlugin";
