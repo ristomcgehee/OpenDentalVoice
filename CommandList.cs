@@ -512,7 +512,7 @@ namespace VoiceCommand {
 							"skip to tooth seventeen facial",
 							"skip to seventeen facial"
 						},
-						Action=VoiceCommandAction.SkipToTootSeventeenFacial,
+						Action=VoiceCommandAction.SkipToToothSeventeenFacial,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
@@ -768,7 +768,7 @@ namespace VoiceCommand {
 							"skip to tooth seventeen labial",
 							"skip to seventeen labial"
 						},
-						Action=VoiceCommandAction.SkipToTootSeventeenLabial,
+						Action=VoiceCommandAction.SkipToToothSeventeenLabial,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
