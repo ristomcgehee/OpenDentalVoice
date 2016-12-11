@@ -28,6 +28,7 @@ namespace VoiceCommand {
 					new VoiceCommand {
 						Commands=new List<string> {
 							"give feedback",
+							"start giving feedback",
 							"turn feedback on"
 						},
 						Action=VoiceCommandAction.GiveFeedback,
@@ -925,6 +926,69 @@ namespace VoiceCommand {
 							"mobility"
 						},
 						Action=VoiceCommandAction.Mobility,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus one"
+						},
+						Action=VoiceCommandAction.PlusOne,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus two"
+						},
+						Action=VoiceCommandAction.PlusTwo,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus three"
+						},
+						Action=VoiceCommandAction.PlusThree,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus four"
+						},
+						Action=VoiceCommandAction.PlusFour,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus five"
+						},
+						Action=VoiceCommandAction.PlusFive,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus six"
+						},
+						Action=VoiceCommandAction.PlusSix,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus seven"
+						},
+						Action=VoiceCommandAction.PlusSeven,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus eight"
+						},
+						Action=VoiceCommandAction.PlusEight,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"plus nine"
+						},
+						Action=VoiceCommandAction.PlusNine,
 						Area=VoiceCommandArea.PerioChart
 					},
 

@@ -128,6 +128,15 @@ namespace VoiceCommand {
 		GingivalMargin,
 		Furcation,
 		Mobility,
+		PlusOne,
+		PlusTwo,
+		PlusThree,
+		PlusFour,
+		PlusFive,
+		PlusSix,
+		PlusSeven,
+		PlusNine,
+		PlusEight,
 	}
 
 	[Flags]

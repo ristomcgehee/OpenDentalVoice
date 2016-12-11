@@ -16,20 +16,23 @@ namespace VoiceCommand {
 		private PerioLocation _prevLocation;
 		private int _selectedExam {
 			get {
-				return ((ContrPerio)_formPerio.Controls.Find("gridP",true)[0]).SelectedExam;
+				return _gridP.SelectedExam;
+			}
+		}
+		private ContrPerio _gridP {
+			get {
+				return ((ContrPerio)_formPerio.Controls.Find("gridP",true)[0]);
 			}
 		}
 		private Point _curCell {
 			get {
-				ContrPerio contrPerio=(ContrPerio)_formPerio.Controls.Find("gridP",true)[0];
 				return (Point)typeof(ContrPerio).GetField("CurCell",BindingFlags.NonPublic|BindingFlags.Instance)
-					.GetValue(contrPerio);
+					.GetValue(_gridP);
 			}
 			set {
-				ContrPerio contrPerio=(ContrPerio)_formPerio.Controls.Find("gridP",true)[0];
-				MethodInfo dynMethod=contrPerio.GetType().GetMethod("SetNewCell",
+				MethodInfo dynMethod= _gridP.GetType().GetMethod("SetNewCell",
 					BindingFlags.NonPublic|BindingFlags.Instance);
-				dynMethod.Invoke(contrPerio,new object[] { value.X,value.Y });
+				dynMethod.Invoke(_gridP,new object[] { value.X,value.Y });
 			}
 		}
 
@@ -50,7 +53,7 @@ namespace VoiceCommand {
 				case VoiceCommandAction.CreatePerioChart:
 					OpenDental.UI.Button but=(OpenDental.UI.Button)_formPerio.Controls.Find("butAdd",true)[0];
 					but.PerformClick();
-					response="Adding perio chart. Probing tooth 1.";
+					response="Adding perio chart";
 					break;
 				case VoiceCommandAction.Zero:
 					but=(OpenDental.UI.Button)_formPerio.Controls.Find("but0",true)[0];
@@ -425,19 +428,71 @@ namespace VoiceCommand {
 					response="MGJ";
 					break;
 				case VoiceCommandAction.GingivalMargin:
-					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
+					GoToGingivalMargin();
 					response="Gingival Margin";
 					break;
 				case VoiceCommandAction.Furcation:
-					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
+					GoToFurcation();
 					response=action.ToString();
 					break;
 				case VoiceCommandAction.Mobility:
-					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
+					GoToMobility();
 					response=action.ToString();
 					break;
-
-
+				case VoiceCommandAction.PlusOne:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but1",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusTwo:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but2",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusThree:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but3",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusFour:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but4",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusFive:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but5",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusSix:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but6",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusSeven:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but7",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusEight:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but8",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.PlusNine:
+					_gridP.GingMargPlus=true;
+					((OpenDental.UI.Button)_formPerio.Controls.Find("but9",true)[0]).PerformClick();
+					_gridP.GingMargPlus=false;
+					response=action.ToString();
+					break;
 				default:
 					break;
 			}
@@ -446,8 +501,64 @@ namespace VoiceCommand {
 			_curLocation=GetPerioLocation();
 			SetAutoAdvance();
 			if(_prevLocation != null && _prevLocation.ToothNum != _curLocation.ToothNum) {
-				SayResponse("Tooth "+_curLocation.ToothNum,100);
+				SayResponse("Tooth "+_curLocation.ToothNum);
 			}
+		}
+
+		private void GoToMobility() {
+			int yVal;
+			int xVal;
+			if(_curLocation.ToothNum <= 16) {
+				xVal=(_curLocation.ToothNum-1)*3+2;//Middle cell
+				yVal=10;
+			}
+			else {//ToothNum >= 17
+				xVal=xVal=47-(_curLocation.ToothNum-17)*3;
+				yVal=32;
+			}
+			_curCell=new Point(xVal,yVal);
+		}
+
+		private void GoToGingivalMargin() {
+			int yVal;
+			if(_curLocation.Surface==PerioSurface.Facial) {
+				if(_curLocation.ToothNum<=16) {
+					yVal=7;
+				}
+				else {//ToothNum >= 17
+					yVal=35;
+				}
+			}
+			else {//Labial
+				if(_curLocation.ToothNum<=16) {
+					yVal=14;
+				}
+				else {//ToothNum >= 17
+					yVal=28;
+				}
+			}
+			_curCell=new Point(FirstEmptyPositionX(yVal),yVal);
+		}
+
+		private void GoToFurcation() {
+			int yVal;
+			if(_curLocation.Surface==PerioSurface.Facial) {
+				if(_curLocation.ToothNum<=16) {
+					yVal=9;
+				}
+				else {//ToothNum >= 17
+					yVal=33;
+				}
+			}
+			else {//Labial
+				if(_curLocation.ToothNum<=16) {
+					yVal=12;
+				}
+				else {//ToothNum >= 17
+					yVal=30;
+				}
+			}
+			_curCell=new Point(FirstEmptyPositionX(yVal),yVal);
 		}
 
 		private void GoToMGJ() {
@@ -461,12 +572,7 @@ namespace VoiceCommand {
 				}
 			}
 			else {//Labial
-				if(_curLocation.ToothNum<=16) {
-					return;
-				}
-				else {//ToothNum >= 17
-					yVal=27;
-				}
+				yVal=27;
 			}
 			_curCell=new Point(FirstEmptyPositionX(yVal),yVal);
 		}
