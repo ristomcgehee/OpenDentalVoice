@@ -44,6 +44,7 @@ namespace VoiceCommand {
 		
 		protected override void ExecuteVoiceCommand(VoiceCommandAction action) {
 			base.ExecuteVoiceCommand(action);
+			_curLocation=GetPerioLocation();
 			string response="";
 			switch(action) {
 				case VoiceCommandAction.CreatePerioChart:
@@ -415,16 +416,118 @@ namespace VoiceCommand {
 				case VoiceCommandAction.SkipToToothThirtyTwoLabial:
 					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
 					break;
+				case VoiceCommandAction.Probing:
+					GoToProbing();
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.MucoGingivalJunction:
+					GoToMGJ();
+					response="MGJ";
+					break;
+				case VoiceCommandAction.GingivalMargin:
+					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
+					response="Gingival Margin";
+					break;
+				case VoiceCommandAction.Furcation:
+					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
+					response=action.ToString();
+					break;
+				case VoiceCommandAction.Mobility:
+					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
+					response=action.ToString();
+					break;
+
+
+				default:
+					break;
 			}
 			SayResponse(response);
 			_prevLocation=_curLocation.Copy();
 			_curLocation=GetPerioLocation();
 			SetAutoAdvance();
-			if(_prevLocation!=null && _prevLocation.ToothNum!=_curLocation.ToothNum) {
+			if(_prevLocation != null && _prevLocation.ToothNum != _curLocation.ToothNum) {
 				SayResponse("Tooth "+_curLocation.ToothNum,100);
 			}
 		}
-		
+
+		private void GoToMGJ() {
+			int yVal;
+			if(_curLocation.Surface==PerioSurface.Facial) {
+				if(_curLocation.ToothNum<=16) {
+					yVal=6;
+				}
+				else {//ToothNum >= 17
+					yVal=36;
+				}
+			}
+			else {//Labial
+				if(_curLocation.ToothNum<=16) {
+					return;
+				}
+				else {//ToothNum >= 17
+					yVal=27;
+				}
+			}
+			_curCell=new Point(FirstEmptyPositionX(yVal),yVal);
+		}
+
+		private void GoToProbing() {
+			int yVal;
+			if(_curLocation.Surface==PerioSurface.Facial) {
+				if(_curLocation.ToothNum<=16) {
+					yVal=6-Math.Min(6,_selectedExam+1);
+				}
+				else {//ToothNum >= 17
+					yVal=36+Math.Min(6,_selectedExam+1);
+				}
+			}
+			else {//Labial
+				if(_curLocation.ToothNum<=16) {
+					yVal=14+Math.Min(6,_selectedExam+1);
+				}
+				else {//ToothNum >= 17
+					yVal=27-Math.Min(6,_selectedExam+1);
+				}
+			}
+			_curCell=new Point(FirstEmptyPositionX(yVal),yVal);
+		}
+
+		private int FirstEmptyPositionX(int yVal) {
+			int xVal;
+			if(_curLocation.Surface==PerioSurface.Facial) {
+				if(_curLocation.ToothNum<=16) {
+					xVal=(_curLocation.ToothNum-1)*3+1;
+				}
+				else {//ToothNum >= 17
+					xVal=46-(_curLocation.ToothNum-17)*3;
+				}
+				if(string.IsNullOrEmpty(GetTextInCell(xVal,yVal))) {
+					return xVal;
+				}
+				xVal++;
+				if(string.IsNullOrEmpty(GetTextInCell(xVal,yVal))) {
+					return xVal;
+				}
+				return ++xVal;
+			}
+			else {//Labial
+				if(_curLocation.ToothNum<=16) {
+					xVal=(_curLocation.ToothNum-1)*3+3;
+				}
+				else {//ToothNum >= 17
+					xVal=48-(_curLocation.ToothNum-17)*3;
+				}
+				if(string.IsNullOrEmpty(GetTextInCell(xVal,yVal))) {
+					return xVal;
+				}
+				xVal--;
+				if(string.IsNullOrEmpty(GetTextInCell(xVal,yVal))) {
+					return xVal;
+				}
+				return --xVal;
+			}
+		}
+
 		private void SetAutoAdvance() {
 			if(_prevLocation==null) {
 				return;
@@ -473,10 +576,22 @@ namespace VoiceCommand {
 			else {
 				perioLoc.ToothNum=33-(_curCell.X+2)/3;
 			}
-
-
-
+			if(perioLoc.Surface==PerioSurface.Facial) {
+				perioLoc.ProbingPosition=(_curCell.X-1)%3+1;
+			}
+			else {
+				perioLoc.ProbingPosition=3-(_curCell.X-1)%3;
+			}
+			//Still need to calculate the MeasureType			
+			perioLoc.Text=GetTextInCell(_curCell.X,_curCell.Y);
 			return perioLoc;
+		}
+
+		private string GetTextInCell(int x,int y) {
+			ContrPerio contrPerio=(ContrPerio)_formPerio.Controls.Find("gridP",true)[0];
+			PerioCell[,] perioData=(PerioCell[,])typeof(ContrPerio).GetField("DataArray",BindingFlags.NonPublic|BindingFlags.Instance)
+				.GetValue(contrPerio);
+			return perioData[x,y].Text;
 		}
 
 		private class PerioLocation {
@@ -484,6 +599,7 @@ namespace VoiceCommand {
 			public int ProbingPosition;
 			public PerioSurface Surface;
 			public MeasurementType MeasureType;
+			public string Text;
 
 			public PerioLocation Copy() {
 				return (PerioLocation)MemberwiseClone();

@@ -891,6 +891,42 @@ namespace VoiceCommand {
 						Action=VoiceCommandAction.SkipToToothThirtyTwoLabial,
 						Area=VoiceCommandArea.PerioChart
 					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"probing"
+						},
+						Action=VoiceCommandAction.Probing,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"Muco Gingival Junction",
+							"MGJ"
+						},
+						Action=VoiceCommandAction.MucoGingivalJunction,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"Gingival Margin"
+						},
+						Action=VoiceCommandAction.GingivalMargin,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"Furcation"
+						},
+						Action=VoiceCommandAction.Furcation,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"mobility"
+						},
+						Action=VoiceCommandAction.Mobility,
+						Area=VoiceCommandArea.PerioChart
+					},
 
 
 #endregion PerioChart

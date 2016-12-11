@@ -123,6 +123,11 @@ namespace VoiceCommand {
 		SkipToToothThirtyLabial,
 		SkipToToothThirtyOneLabial,
 		SkipToToothThirtyTwoLabial,
+		Probing,
+		MucoGingivalJunction,
+		GingivalMargin,
+		Furcation,
+		Mobility,
 	}
 
 	[Flags]
