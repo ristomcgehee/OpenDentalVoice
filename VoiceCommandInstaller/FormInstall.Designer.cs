@@ -60,7 +60,7 @@
 			// butInstall
 			// 
 			this.butInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.butInstall.Location = new System.Drawing.Point(257, 119);
+			this.butInstall.Location = new System.Drawing.Point(257, 108);
 			this.butInstall.Name = "butInstall";
 			this.butInstall.Size = new System.Drawing.Size(75, 23);
 			this.butInstall.TabIndex = 3;
@@ -71,7 +71,7 @@
 			// butCancel
 			// 
 			this.butCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.butCancel.Location = new System.Drawing.Point(338, 119);
+			this.butCancel.Location = new System.Drawing.Point(338, 108);
 			this.butCancel.Name = "butCancel";
 			this.butCancel.Size = new System.Drawing.Size(75, 23);
 			this.butCancel.TabIndex = 4;
@@ -94,7 +94,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(422, 151);
+			this.ClientSize = new System.Drawing.Size(422, 140);
 			this.Controls.Add(this.checkCreateProgLink);
 			this.Controls.Add(this.butCancel);
 			this.Controls.Add(this.butInstall);

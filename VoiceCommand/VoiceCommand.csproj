@@ -59,11 +59,11 @@
     <Compile Include="VoiceCommandAbs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\head\OpenDental\OpenDental.csproj">
+    <ProjectReference Include="..\..\head\OpenDental\OpenDental.csproj">
       <Project>{8136317d-c936-49b6-9e31-d90f02d2f207}</Project>
       <Name>OpenDental</Name>
     </ProjectReference>
-    <ProjectReference Include="..\head\OpenDentBusiness\OpenDentBusiness.csproj">
+    <ProjectReference Include="..\..\head\OpenDentBusiness\OpenDentBusiness.csproj">
       <Project>{3d0fc76e-803c-4de2-bdb1-47d63a4e2357}</Project>
       <Name>OpenDentBusiness</Name>
     </ProjectReference>
@@ -85,7 +85,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>call "C:\development\OPEN DENTAL SUBVERSION\VoiceCommand\CopyDllToOD.bat"</PostBuildEvent>
+    <PostBuildEvent>call "C:\development\OPEN DENTAL SUBVERSION\VoiceCommand\VoiceCommand\CopyDllToOD.bat"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

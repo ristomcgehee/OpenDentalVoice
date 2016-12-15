@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Windows.Forms;
 
 namespace VoiceCommand {
+
 	public class FormPerioV:VoiceCommandAbs {
 		private FormPerio _formPerio;
 		protected override VoiceCommandArea ProgramArea {

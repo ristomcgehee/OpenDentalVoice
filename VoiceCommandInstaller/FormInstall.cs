@@ -1,13 +1,7 @@
 ﻿using OpenDentBusiness;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.XPath;
@@ -29,7 +23,12 @@ namespace VoiceCommandInstaller {
 		}
 
 		private void butBrowse_Click(object sender,EventArgs e) {
-
+			FolderBrowserDialog folderBrowser=new FolderBrowserDialog();
+			folderBrowser.RootFolder=Environment.SpecialFolder.ProgramFilesX86;
+			folderBrowser.ShowNewFolderButton=false;
+			if(folderBrowser.ShowDialog()==DialogResult.OK) {
+				textDir.Text=folderBrowser.SelectedPath;
+			}
 		}
 
 		private void CreateProgramLink() {
