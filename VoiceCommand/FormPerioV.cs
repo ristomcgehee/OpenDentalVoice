@@ -695,10 +695,14 @@ namespace VoiceCommand {
 		}
 
 		private string GetTextInCell(int x,int y) {
-			ContrPerio contrPerio=(ContrPerio)_formPerio.Controls.Find("gridP",true)[0];
-			PerioCell[,] perioData=(PerioCell[,])typeof(ContrPerio).GetField("DataArray",BindingFlags.NonPublic|BindingFlags.Instance)
-				.GetValue(contrPerio);
-			return perioData[x,y].Text;
+			try {
+				PerioCell[,] perioData = (PerioCell[,])typeof(ContrPerio).GetField("DataArray",BindingFlags.NonPublic|BindingFlags.Instance)
+					.GetValue(_gridP);
+				return perioData[x,y].Text;
+			}
+			catch {
+				return "";
+			}
 		}
 
 		private class PerioLocation {

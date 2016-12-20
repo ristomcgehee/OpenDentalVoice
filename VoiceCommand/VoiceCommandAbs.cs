@@ -90,6 +90,7 @@ namespace VoiceCommand {
 				Thread.Sleep(pauseBefore);
 				_isListening=false;
 				Synth.Speak(response);
+				Thread.Sleep(10);//So that it doesn't take in the response as human speech
 				_isListening=true;
 			}
 		}
