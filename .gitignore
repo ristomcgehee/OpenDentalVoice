@@ -45,3 +45,4 @@ bin/
 obj/
 packages/
 .vs/
+VoiceCommandInstaller/Release Files/*
