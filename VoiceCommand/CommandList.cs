@@ -61,7 +61,8 @@ namespace VoiceCommand {
 						Commands=new List<string> {
 							"go to appointment module"
 						},
-						Action=VoiceCommandAction.GoToAppointmentModule
+						Action=VoiceCommandAction.GoToAppointmentModule,
+						Area=VoiceCommandArea.FormOpenDental
 					},
 					new VoiceCommand {
 						Commands=new List<string> {

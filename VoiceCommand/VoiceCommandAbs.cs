@@ -52,12 +52,14 @@ namespace VoiceCommand {
 				return;
 			}
 			if(e.Result.Confidence<0.8) {
-				voiceCommand=new VoiceCommand { Action=VoiceCommandAction.DidntGetThat };
+				voiceCommand.Action=VoiceCommandAction.DidntGetThat;
 			}
 			if(voiceCommand.Action==VoiceCommandAction.StartListening) {
 				IsListening=true;
+				SayResponse("listening");
 			}
 			if(voiceCommand.Action==VoiceCommandAction.StopListening) {
+				SayResponse("good-bye");
 				IsListening=false;
 			}
 			if(!IsListening) {
@@ -107,7 +109,21 @@ namespace VoiceCommand {
 			labelListening.Text="Listening";
 			labelListening.ForeColor=Color.LimeGreen;
 			labelListening.Location=new Point(point.X+36,point.Y+10);
+			labelListening.Visible=false;
 			control.Controls.Add(labelListening);
+			OpenDental.UI.Button butHelp=new OpenDental.UI.Button();
+			butHelp.Image=Properties.Resources.Help_18px;
+			butHelp.ImageAlign=ContentAlignment.MiddleCenter;
+			butHelp.Location=new Point(point.X+3,point.Y+37);
+			butHelp.Size=new Size(18,18);
+			butHelp.Click+=butHelp_Click;
+			control.Controls.Add(butHelp);
+		}
+
+		private void butHelp_Click(object sender,EventArgs e) {
+			FormHelp FormH=new FormHelp(CommandList.Commands.Where(x => x.Area==ProgramArea||x.Area==VoiceCommandArea.Global)
+				.SelectMany(x => x.Commands).ToList());
+			FormH.Show();
 		}
 
 		protected void butMic_Click(object sender,EventArgs e) {

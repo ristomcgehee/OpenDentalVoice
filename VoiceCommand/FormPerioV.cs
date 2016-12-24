@@ -40,7 +40,7 @@ namespace VoiceCommand {
 		public FormPerioV(FormPerio sender) { 
 			_formPerio=sender;
 			AddMicButton(_formPerio,new Point(12,300));
-			_curLocation=GetPerioLocation();
+			_curLocation=GetPerioLocation(); 
 #if DEBUG
 			IsListening=true;
 #endif

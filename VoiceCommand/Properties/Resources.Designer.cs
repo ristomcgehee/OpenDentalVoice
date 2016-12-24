@@ -61,12 +61,12 @@ namespace VoiceCommand.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon Mic {
+        internal static System.Drawing.Bitmap Help_18px {
             get {
-                object obj = ResourceManager.GetObject("Mic", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("Help_18px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
