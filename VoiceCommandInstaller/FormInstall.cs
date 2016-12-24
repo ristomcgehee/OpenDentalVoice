@@ -24,7 +24,6 @@ namespace VoiceCommandInstaller {
 
 		private void butBrowse_Click(object sender,EventArgs e) {
 			FolderBrowserDialog folderBrowser=new FolderBrowserDialog();
-			folderBrowser.RootFolder=Environment.SpecialFolder.ProgramFilesX86;
 			folderBrowser.ShowNewFolderButton=false;
 			if(folderBrowser.ShowDialog()==DialogResult.OK) {
 				textDir.Text=folderBrowser.SelectedPath;

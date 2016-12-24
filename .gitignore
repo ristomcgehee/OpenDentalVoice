@@ -45,4 +45,9 @@ bin/
 obj/
 packages/
 .vs/
-VoiceCommandInstaller/Release Files/*
+VoiceCommandInstaller/Release Files/CDT.dll
+VoiceCommandInstaller/Release Files/CodeBase.dll
+VoiceCommandInstaller/Release Files/MySQL.Data.dll
+VoiceCommandInstaller/Release Files/OpenDentBusiness.dll
+VoiceCommandInstaller/Release Files/Oracle.DataAccess.dll
+VoiceCommandInstaller/Release Files/VoiceCommand.dll
