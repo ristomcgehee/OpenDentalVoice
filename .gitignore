@@ -51,3 +51,4 @@ VoiceCommandInstaller/Release Files/MySQL.Data.dll
 VoiceCommandInstaller/Release Files/OpenDentBusiness.dll
 VoiceCommandInstaller/Release Files/Oracle.DataAccess.dll
 VoiceCommandInstaller/Release Files/VoiceCommand.dll
+!VoiceCommand/bin/Release/VoiceCommand.dll
