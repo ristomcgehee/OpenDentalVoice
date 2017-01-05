@@ -42,7 +42,12 @@ namespace VoiceCommand {
 			RecEngine.SetInputToDefaultAudioDevice();
 			RecEngine.RecognizeAsync(RecognizeMode.Multiple);
 			RecEngine.SpeechRecognized+=RecEngine_SpeechRecognized;
-			Synth.SetOutputToDefaultAudioDevice();
+			try {
+				Synth.SetOutputToDefaultAudioDevice();
+			}
+			catch {
+				MessageBox.Show("This computer's audio input is not capable of speech recognition. Try setting up a different microphone on this computer.");
+			}
 			Synth.SelectVoiceByHints(VoiceGender.Female);
 		}
 
