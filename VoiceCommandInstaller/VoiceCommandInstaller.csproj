@@ -88,7 +88,7 @@
     <None Include="Resources\VoiceCommand.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\head\OpenDentBusiness\OpenDentBusiness.csproj">
+    <ProjectReference Include="..\..\OPEN DENTAL SUBVERSION\head\OpenDentBusiness\OpenDentBusiness.csproj">
       <Project>{3d0fc76e-803c-4de2-bdb1-47d63a4e2357}</Project>
       <Name>OpenDentBusiness</Name>
     </ProjectReference>

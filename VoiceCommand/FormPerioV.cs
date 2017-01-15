@@ -709,7 +709,7 @@ namespace VoiceCommand {
 			public int ToothNum;
 			public int ProbingPosition;
 			public PerioSurface Surface;
-			public MeasurementType MeasureType;
+			//public MeasurementType MeasureType;
 			public string Text;
 
 			public PerioLocation Copy() {
