@@ -324,100 +324,100 @@ namespace VoiceCommand {
 				case VoiceCommandAction.SkipToToothThirtyTwoFacial:
 					_curCell=new Point(1,36+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothOneLabial:
+				case VoiceCommandAction.SkipToToothOneLingual:
 					_curCell=new Point(3,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwoLabial:
+				case VoiceCommandAction.SkipToToothTwoLingual:
 					_curCell=new Point(6,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothThreeLabial:
+				case VoiceCommandAction.SkipToToothThreeLingual:
 					_curCell=new Point(9,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothFourLabial:
+				case VoiceCommandAction.SkipToToothFourLingual:
 					_curCell=new Point(12,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothFiveLabial:
+				case VoiceCommandAction.SkipToToothFiveLingual:
 					_curCell=new Point(15,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothSixLabial:
+				case VoiceCommandAction.SkipToToothSixLingual:
 					_curCell=new Point(18,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothSevenLabial:
+				case VoiceCommandAction.SkipToToothSevenLingual:
 					_curCell=new Point(21,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothEightLabial:
+				case VoiceCommandAction.SkipToToothEightLingual:
 					_curCell=new Point(24,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothNineLabial:
+				case VoiceCommandAction.SkipToToothNineLingual:
 					_curCell=new Point(27,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTenLabial:
+				case VoiceCommandAction.SkipToToothTenLingual:
 					_curCell=new Point(30,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothElevenLabial:
+				case VoiceCommandAction.SkipToToothElevenLingual:
 					_curCell=new Point(33,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwelveLabial:
+				case VoiceCommandAction.SkipToToothTwelveLingual:
 					_curCell=new Point(36,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothThirteenLabial:
+				case VoiceCommandAction.SkipToToothThirteenLingual:
 					_curCell=new Point(39,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothFourteenLabial:
+				case VoiceCommandAction.SkipToToothFourteenLingual:
 					_curCell=new Point(42,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothFifteenLabial:
+				case VoiceCommandAction.SkipToToothFifteenLingual:
 					_curCell=new Point(43,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothSixteenLabial:
+				case VoiceCommandAction.SkipToToothSixteenLingual:
 					_curCell=new Point(46,14+Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothSeventeenLabial:
+				case VoiceCommandAction.SkipToToothSeventeenLingual:
 					_curCell=new Point(48,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothEighteenLabial:
+				case VoiceCommandAction.SkipToToothEighteenLingual:
 					_curCell=new Point(45,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothNineteenLabial:
+				case VoiceCommandAction.SkipToToothNineteenLingual:
 					_curCell=new Point(42,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyLabial:
+				case VoiceCommandAction.SkipToToothTwentyLingual:
 					_curCell=new Point(39,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyOneLabial:
+				case VoiceCommandAction.SkipToToothTwentyOneLingual:
 					_curCell=new Point(36,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyTwoLabial:
+				case VoiceCommandAction.SkipToToothTwentyTwoLingual:
 					_curCell=new Point(33,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyThreeLabial:
+				case VoiceCommandAction.SkipToToothTwentyThreeLingual:
 					_curCell=new Point(30,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyFourLabial:
+				case VoiceCommandAction.SkipToToothTwentyFourLingual:
 					_curCell=new Point(27,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyFiveLabial:
+				case VoiceCommandAction.SkipToToothTwentyFiveLingual:
 					_curCell=new Point(24,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentySixLabial:
+				case VoiceCommandAction.SkipToToothTwentySixLingual:
 					_curCell=new Point(21,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentySevenLabial:
+				case VoiceCommandAction.SkipToToothTwentySevenLingual:
 					_curCell=new Point(18,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyEightLabial:
+				case VoiceCommandAction.SkipToToothTwentyEightLingual:
 					_curCell=new Point(15,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothTwentyNineLabial:
+				case VoiceCommandAction.SkipToToothTwentyNineLingual:
 					_curCell=new Point(12,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothThirtyLabial:
+				case VoiceCommandAction.SkipToToothThirtyLingual:
 					_curCell=new Point(9,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothThirtyOneLabial:
+				case VoiceCommandAction.SkipToToothThirtyOneLingual:
 					_curCell=new Point(6,27-Math.Min(6,_selectedExam+1));
 					break;
-				case VoiceCommandAction.SkipToToothThirtyTwoLabial:
+				case VoiceCommandAction.SkipToToothThirtyTwoLingual:
 					_curCell=new Point(3,27-Math.Min(6,_selectedExam+1));
 					break;
 				case VoiceCommandAction.Probing:
@@ -530,7 +530,7 @@ namespace VoiceCommand {
 					yVal=35;
 				}
 			}
-			else {//Labial
+			else {//Lingual
 				if(_curLocation.ToothNum<=16) {
 					yVal=14;
 				}
@@ -551,7 +551,7 @@ namespace VoiceCommand {
 					yVal=33;
 				}
 			}
-			else {//Labial
+			else {//Lingual
 				if(_curLocation.ToothNum<=16) {
 					yVal=12;
 				}
@@ -572,7 +572,7 @@ namespace VoiceCommand {
 					yVal=36;
 				}
 			}
-			else {//Labial
+			else {//Lingual
 				yVal=27;
 			}
 			_curCell=new Point(FirstEmptyPositionX(yVal),yVal);
@@ -588,7 +588,7 @@ namespace VoiceCommand {
 					yVal=36+Math.Min(6,_selectedExam+1);
 				}
 			}
-			else {//Labial
+			else {//Lingual
 				if(_curLocation.ToothNum<=16) {
 					yVal=14+Math.Min(6,_selectedExam+1);
 				}
@@ -617,7 +617,7 @@ namespace VoiceCommand {
 				}
 				return ++xVal;
 			}
-			else {//Labial
+			else {//Lingual
 				if(_curLocation.ToothNum<=16) {
 					xVal=(_curLocation.ToothNum-1)*3+3;
 				}
@@ -639,11 +639,11 @@ namespace VoiceCommand {
 			if(_prevLocation==null) {
 				return;
 			}
-			if(_prevLocation.Surface==PerioSurface.Facial && _curLocation.Surface==PerioSurface.Labial) 
+			if(_prevLocation.Surface==PerioSurface.Facial && _curLocation.Surface==PerioSurface.Lingual) 
 			{
 				ClickAdvanceRight();
 			}
-			if(_prevLocation.Surface==PerioSurface.Labial && _curLocation.Surface==PerioSurface.Facial) 
+			if(_prevLocation.Surface==PerioSurface.Lingual && _curLocation.Surface==PerioSurface.Facial) 
 			{
 				ClickAdvanceLeft();
 			}
@@ -672,7 +672,7 @@ namespace VoiceCommand {
 		private PerioLocation GetPerioLocation() {
 			PerioLocation perioLoc=new PerioLocation();
 			if(_curCell.Y>=13 &&_curCell.Y<=30) {
-				perioLoc.Surface=PerioSurface.Labial;
+				perioLoc.Surface=PerioSurface.Lingual;
 			}
 			else {
 				perioLoc.Surface=PerioSurface.Facial;
@@ -719,7 +719,7 @@ namespace VoiceCommand {
 
 		private enum PerioSurface {
 			Facial,
-			Labial
+			Lingual
 		}
 
 		private enum MeasurementType {

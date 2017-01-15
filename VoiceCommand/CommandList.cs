@@ -639,258 +639,258 @@ namespace VoiceCommand {
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth one labial",
-							"skip to one labial"
+							"skip to tooth one lingual",
+							"skip to one lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothOneLabial,
+						Action=VoiceCommandAction.SkipToToothOneLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth two labial",
-							"skip to two labial"
+							"skip to tooth two lingual",
+							"skip to two lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwoLabial,
+						Action=VoiceCommandAction.SkipToToothTwoLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth three labial",
-							"skip to three labial"
+							"skip to tooth three lingual",
+							"skip to three lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothThreeLabial,
+						Action=VoiceCommandAction.SkipToToothThreeLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth four labial",
-							"skip to four labial"
+							"skip to tooth four lingual",
+							"skip to four lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothFourLabial,
+						Action=VoiceCommandAction.SkipToToothFourLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth five labial",
-							"skip to five labial"
+							"skip to tooth five lingual",
+							"skip to five lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothFiveLabial,
+						Action=VoiceCommandAction.SkipToToothFiveLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth six labial",
-							"skip to six labial"
+							"skip to tooth six lingual",
+							"skip to six lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothSixLabial,
+						Action=VoiceCommandAction.SkipToToothSixLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth seven labial",
-							"skip to seven labial"
+							"skip to tooth seven lingual",
+							"skip to seven lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothSevenLabial,
+						Action=VoiceCommandAction.SkipToToothSevenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth eight labial",
-							"skip to eight labial"
+							"skip to tooth eight lingual",
+							"skip to eight lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothEightLabial,
+						Action=VoiceCommandAction.SkipToToothEightLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth nine labial",
-							"skip to nine labial"
+							"skip to tooth nine lingual",
+							"skip to nine lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothNineLabial,
+						Action=VoiceCommandAction.SkipToToothNineLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth ten labial",
-							"skip to ten labial"
+							"skip to tooth ten lingual",
+							"skip to ten lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTenLabial,
+						Action=VoiceCommandAction.SkipToToothTenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth eleven labial",
-							"skip to eleven labial"
+							"skip to tooth eleven lingual",
+							"skip to eleven lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothElevenLabial,
+						Action=VoiceCommandAction.SkipToToothElevenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twelve labial",
-							"skip to twelve labial"
+							"skip to tooth twelve lingual",
+							"skip to twelve lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwelveLabial,
+						Action=VoiceCommandAction.SkipToToothTwelveLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth thirteen labial",
-							"skip to thirteen labial"
+							"skip to tooth thirteen lingual",
+							"skip to thirteen lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothThirteenLabial,
+						Action=VoiceCommandAction.SkipToToothThirteenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth fourteen labial",
-							"skip to fourteen labial"
+							"skip to tooth fourteen lingual",
+							"skip to fourteen lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothFourteenLabial,
+						Action=VoiceCommandAction.SkipToToothFourteenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth fifteen labial",
-							"skip to fifteen labial"
+							"skip to tooth fifteen lingual",
+							"skip to fifteen lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothFifteenLabial,
+						Action=VoiceCommandAction.SkipToToothFifteenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth sixteen labial",
-							"skip to sixteen labial"
+							"skip to tooth sixteen lingual",
+							"skip to sixteen lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothSixteenLabial,
+						Action=VoiceCommandAction.SkipToToothSixteenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth seventeen labial",
-							"skip to seventeen labial"
+							"skip to tooth seventeen lingual",
+							"skip to seventeen lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothSeventeenLabial,
+						Action=VoiceCommandAction.SkipToToothSeventeenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth eighteen labial",
-							"skip to eighteen labial"
+							"skip to tooth eighteen lingual",
+							"skip to eighteen lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothEighteenLabial,
+						Action=VoiceCommandAction.SkipToToothEighteenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth nineteen labial",
-							"skip to nineteen labial"
+							"skip to tooth nineteen lingual",
+							"skip to nineteen lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothNineteenLabial,
+						Action=VoiceCommandAction.SkipToToothNineteenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty labial",
-							"skip to twenty labial"
+							"skip to tooth twenty lingual",
+							"skip to twenty lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty one labial",
-							"skip to twenty one labial"
+							"skip to tooth twenty one lingual",
+							"skip to twenty one lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyOneLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyOneLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty two labial",
-							"skip to twenty two labial"
+							"skip to tooth twenty two lingual",
+							"skip to twenty two lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyTwoLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyTwoLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty three labial",
-							"skip to twenty three labial"
+							"skip to tooth twenty three lingual",
+							"skip to twenty three lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyThreeLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyThreeLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty four labial",
-							"skip to twenty four labial"
+							"skip to tooth twenty four lingual",
+							"skip to twenty four lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyFourLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyFourLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty five labial",
-							"skip to twenty five labial"
+							"skip to tooth twenty five lingual",
+							"skip to twenty five lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyFiveLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyFiveLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty six labial",
-							"skip to twenty six labial"
+							"skip to tooth twenty six lingual",
+							"skip to twenty six lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentySixLabial,
+						Action=VoiceCommandAction.SkipToToothTwentySixLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty seven labial",
-							"skip to twenty seven labial"
+							"skip to tooth twenty seven lingual",
+							"skip to twenty seven lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentySevenLabial,
+						Action=VoiceCommandAction.SkipToToothTwentySevenLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty eight labial",
-							"skip to twenty eight labial"
+							"skip to tooth twenty eight lingual",
+							"skip to twenty eight lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyEightLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyEightLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth twenty nine labial",
-							"skip to twenty nine labial"
+							"skip to tooth twenty nine lingual",
+							"skip to twenty nine lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothTwentyNineLabial,
+						Action=VoiceCommandAction.SkipToToothTwentyNineLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth thirty labial",
-							"skip to thirty labial"
+							"skip to tooth thirty lingual",
+							"skip to thirty lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothThirtyLabial,
+						Action=VoiceCommandAction.SkipToToothThirtyLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth thirty one labial",
-							"skip to thirty one labial"
+							"skip to tooth thirty one lingual",
+							"skip to thirty one lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothThirtyOneLabial,
+						Action=VoiceCommandAction.SkipToToothThirtyOneLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
 						Commands=new List<string> {
-							"skip to tooth thirty two labial",
-							"skip to thirty two labial"
+							"skip to tooth thirty two lingual",
+							"skip to thirty two lingual"
 						},
-						Action=VoiceCommandAction.SkipToToothThirtyTwoLabial,
+						Action=VoiceCommandAction.SkipToToothThirtyTwoLingual,
 						Area=VoiceCommandArea.PerioChart
 					},
 					new VoiceCommand {
