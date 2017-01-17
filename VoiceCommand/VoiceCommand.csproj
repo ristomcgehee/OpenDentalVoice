@@ -53,6 +53,12 @@
     <Compile Include="FormHelp.Designer.cs">
       <DependentUpon>FormHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMsgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMsgBox.Designer.cs">
+      <DependentUpon>FormMsgBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPerioV.cs" />
     <Compile Include="CommandList.cs" />
     <Compile Include="Logging.cs" />
@@ -65,6 +71,7 @@
     </Compile>
     <Compile Include="VoiceCommand.cs" />
     <Compile Include="VoiceCommandAbs.cs" />
+    <Compile Include="VoiceMsgBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\OPEN DENTAL SUBVERSION\head\OpenDental\OpenDental.csproj">

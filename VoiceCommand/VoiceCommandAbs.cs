@@ -12,8 +12,8 @@ using System.Windows.Forms;
 
 namespace VoiceCommand {
 	public abstract class VoiceCommandAbs {
-		protected SpeechRecognitionEngine RecEngine=new SpeechRecognitionEngine();
-		protected SpeechSynthesizer Synth=new SpeechSynthesizer();
+		private SpeechRecognitionEngine _recEngine=new SpeechRecognitionEngine();
+		private SpeechSynthesizer _synth=new SpeechSynthesizer();
 		protected abstract VoiceCommandArea ProgramArea { get; }
 		protected bool IsListening {
 			get {
@@ -21,34 +21,36 @@ namespace VoiceCommand {
 			}
 			set {
 				_isListening=value;
-				labelListening.Visible=value;
+				if(labelListening != null) {
+					labelListening.Visible=value;
+				}
 			}
 		}
 		protected bool IsGivingFeedback=true;
 		private Label labelListening;
 		private bool _isListening;
 		
-		public virtual void InitializeListening() {
+		public virtual void InitializeListening(bool includeGlobal=true) {
 			Choices commands=new Choices();
-			commands.Add(CommandList.Commands.Where(x => x.Area==ProgramArea || x.Area==VoiceCommandArea.Global)
+			commands.Add(CommandList.Commands.Where(x => x.Area==ProgramArea || (includeGlobal && x.Area==VoiceCommandArea.Global))
 				.SelectMany(x => x.Commands).ToArray());
 			// Create a GrammarBuilder object and append the Choices object.
 			GrammarBuilder gb=new GrammarBuilder();
 			gb.Append(commands);
 			// Create the Grammar instance and load it into the speech recognition engine.
 			Grammar g=new Grammar(gb);
-			RecEngine=new SpeechRecognitionEngine();
-			RecEngine.LoadGrammarAsync(g);
-			RecEngine.SetInputToDefaultAudioDevice();
-			RecEngine.RecognizeAsync(RecognizeMode.Multiple);
-			RecEngine.SpeechRecognized+=RecEngine_SpeechRecognized;
+			_recEngine=new SpeechRecognitionEngine();
+			_recEngine.LoadGrammarAsync(g);
+			_recEngine.SetInputToDefaultAudioDevice();
+			_recEngine.RecognizeAsync(RecognizeMode.Multiple);
+			_recEngine.SpeechRecognized+=RecEngine_SpeechRecognized;
 			try {
-				Synth.SetOutputToDefaultAudioDevice();
+				_synth.SetOutputToDefaultAudioDevice();
 			}
 			catch {
 				MessageBox.Show("This computer's audio input is not capable of speech recognition. Try setting up a different microphone on this computer.");
 			}
-			Synth.SelectVoiceByHints(VoiceGender.Female);
+			_synth.SelectVoiceByHints(VoiceGender.Female);
 		}
 
 		protected virtual void RecEngine_SpeechRecognized(object sender,SpeechRecognizedEventArgs e) {
@@ -83,7 +85,7 @@ namespace VoiceCommand {
 				case VoiceCommandAction.StopGivingFeedback:
 					IsGivingFeedback=false;
 					response="No longer giving feedback";
-					Synth.Speak(response);
+					_synth.Speak(response);
 					break;
 				case VoiceCommandAction.DidntGetThat:
 					response="I didn't get that.";
@@ -96,7 +98,16 @@ namespace VoiceCommand {
 			if(!string.IsNullOrEmpty(response) && IsGivingFeedback) {
 				Thread.Sleep(pauseBefore);
 				_isListening=false;
-				Synth.Speak(response);
+				_synth.Speak(response);
+				Thread.Sleep(10);//So that it doesn't take in the response as human speech
+				_isListening=true;
+			}
+		}
+
+		protected void SayResponseAsync(string response) {
+			if (!string.IsNullOrEmpty(response) && IsGivingFeedback) {
+				_isListening=false;
+				_synth.SpeakAsync(response);
 				Thread.Sleep(10);//So that it doesn't take in the response as human speech
 				_isListening=true;
 			}

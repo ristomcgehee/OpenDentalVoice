@@ -45,7 +45,7 @@ namespace VoiceCommand {
 					new VoiceCommand {
 						Commands=new List<string> {	},
 						Action=VoiceCommandAction.DidntGetThat,
-						Area=VoiceCommandArea.Global
+						Area=VoiceCommandArea.Global|VoiceCommandArea.VoiceMsgBox
 					},
 					#endregion Global
 					#region FormOpenDental
@@ -991,6 +991,266 @@ namespace VoiceCommand {
 						},
 						Action=VoiceCommandAction.PlusNine,
 						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth one"
+						},
+						Action=VoiceCommandAction.SkipToothOne,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth two"
+						},
+						Action=VoiceCommandAction.SkipToothTwo,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth three"
+						},
+						Action=VoiceCommandAction.SkipToothThree,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth four"
+						},
+						Action=VoiceCommandAction.SkipToothFour,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth five"
+						},
+						Action=VoiceCommandAction.SkipToothFive,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth six"
+						},
+						Action=VoiceCommandAction.SkipToothSix,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth seven"
+						},
+						Action=VoiceCommandAction.SkipToothSeven,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth eight"
+						},
+						Action=VoiceCommandAction.SkipToothEight,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth nine"
+						},
+						Action=VoiceCommandAction.SkipToothNine,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth ten"
+						},
+						Action=VoiceCommandAction.SkipToothTen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth eleven"
+						},
+						Action=VoiceCommandAction.SkipToothEleven,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twelve"
+						},
+						Action=VoiceCommandAction.SkipToothTwelve,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth thirteen"
+						},
+						Action=VoiceCommandAction.SkipToothThirteen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth fouteen"
+						},
+						Action=VoiceCommandAction.SkipToothFourteen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth fifteen"
+						},
+						Action=VoiceCommandAction.SkipToothFifteen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth sixteen"
+						},
+						Action=VoiceCommandAction.SkipToothSixteen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth seventeen"
+						},
+						Action=VoiceCommandAction.SkipToothSeventeen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth eighteen"
+						},
+						Action=VoiceCommandAction.SkipToothEighteen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth nineteen"
+						},
+						Action=VoiceCommandAction.SkipToothNineteen,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty"
+						},
+						Action=VoiceCommandAction.SkipToothTwenty,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty one"
+						},
+						Action=VoiceCommandAction.SkipToothTwentyOne,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty two"
+						},
+						Action=VoiceCommandAction.SkipToothTwentyTwo,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty three"
+						},
+						Action=VoiceCommandAction.SkipToothTwentyThree,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty four"
+						},
+						Action=VoiceCommandAction.SkipToothTwentyFour,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty five"
+						},
+						Action=VoiceCommandAction.SkipToothTwentyFive,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty six"
+						},
+						Action=VoiceCommandAction.SkipToothTwentySix,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty seven"
+						},
+						Action=VoiceCommandAction.SkipToothTwentySeven,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty eight"
+						},
+						Action=VoiceCommandAction.SkipToothTwentyEight,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth twenty nine"
+						},
+						Action=VoiceCommandAction.SkipToothTwentyNine,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth thirty"
+						},
+						Action=VoiceCommandAction.SkipToothThirty,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth thirty one"
+						},
+						Action=VoiceCommandAction.SkipToothThirtyOne,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip tooth thirty two"
+						},
+						Action=VoiceCommandAction.SkipToothThirtyTwo,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"skip this tooth",
+							"skip current tooth"
+						},
+						Action=VoiceCommandAction.SkipCurrentTooth,
+						Area=VoiceCommandArea.PerioChart
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"yes",
+						},
+						Action=VoiceCommandAction.Yes,
+						Area=VoiceCommandArea.VoiceMsgBox
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"no",
+						},
+						Action=VoiceCommandAction.No,
+						Area=VoiceCommandArea.VoiceMsgBox
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"okay",
+						},
+						Action=VoiceCommandAction.Ok,
+						Area=VoiceCommandArea.VoiceMsgBox
+					},
+					new VoiceCommand {
+						Commands=new List<string> {
+							"cancel",
+						},
+						Action=VoiceCommandAction.Cancel,
+						Area=VoiceCommandArea.VoiceMsgBox
 					},
 
 

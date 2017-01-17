@@ -1,5 +1,7 @@
 ﻿using OpenDental;
+using OpenDentBusiness;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
@@ -34,6 +36,18 @@ namespace VoiceCommand {
 				MethodInfo dynMethod= _gridP.GetType().GetMethod("SetNewCell",
 					BindingFlags.NonPublic|BindingFlags.Instance);
 				dynMethod.Invoke(_gridP,new object[] { value.X,value.Y });
+			}
+		}
+		private PerioExam _perioExam {
+			get	{
+				return (PerioExam)typeof(FormPerio).GetField("PerioExamCur", BindingFlags.NonPublic | BindingFlags.Instance)
+					.GetValue(_formPerio);
+			}
+		}
+		private List<string> _listMissingTeeth {
+			get {
+				return (List<string>)typeof(FormPerio).GetField("_listMissingTeeth",BindingFlags.NonPublic | BindingFlags.Instance)
+					.GetValue(_formPerio);
 			}
 		}
 
@@ -207,12 +221,8 @@ namespace VoiceCommand {
 					SendKeys.Send("{BACKSPACE}");
 					response=action.ToString();
 					break;
-				case VoiceCommandAction.GoToTooth:
-					//but=(OpenDental.UI.Button)_formPerio.Controls.Find("butSkip",true)[0];
-					//but.PerformClick();
-					break;
 				case VoiceCommandAction.Right:
-						SendKeys.Send("{RIGHT}");
+					SendKeys.Send("{RIGHT}");
 					response=action.ToString();
 					break;
 				case VoiceCommandAction.Left:
@@ -494,6 +504,105 @@ namespace VoiceCommand {
 					_gridP.GingMargPlus=false;
 					response=action.ToString();
 					break;
+				case VoiceCommandAction.SkipToothOne:
+					SkipTooth(1);
+					break;
+				case VoiceCommandAction.SkipToothTwo:
+					SkipTooth(2);
+					break;
+				case VoiceCommandAction.SkipToothThree:
+					SkipTooth(3);
+					break;
+				case VoiceCommandAction.SkipToothFour:
+					SkipTooth(4);
+					break;
+				case VoiceCommandAction.SkipToothFive:
+					SkipTooth(5);
+					break;
+				case VoiceCommandAction.SkipToothSix:
+					SkipTooth(6);
+					break;
+				case VoiceCommandAction.SkipToothSeven:
+					SkipTooth(7);
+					break;
+				case VoiceCommandAction.SkipToothEight:
+					SkipTooth(8);
+					break;
+				case VoiceCommandAction.SkipToothNine:
+					SkipTooth(9);
+					break;
+				case VoiceCommandAction.SkipToothTen:
+					SkipTooth(10);
+					break;
+				case VoiceCommandAction.SkipToothEleven:
+					SkipTooth(11);
+					break;
+				case VoiceCommandAction.SkipToothTwelve:
+					SkipTooth(12);
+					break;
+				case VoiceCommandAction.SkipToothThirteen:
+					SkipTooth(13);
+					break;
+				case VoiceCommandAction.SkipToothFourteen:
+					SkipTooth(14);
+					break;
+				case VoiceCommandAction.SkipToothFifteen:
+					SkipTooth(15);
+					break;
+				case VoiceCommandAction.SkipToothSixteen:
+					SkipTooth(16);
+					break;
+				case VoiceCommandAction.SkipToothSeventeen:
+					SkipTooth(17);
+					break;
+				case VoiceCommandAction.SkipToothEighteen:
+					SkipTooth(18);
+					break;
+				case VoiceCommandAction.SkipToothNineteen:
+					SkipTooth(19);
+					break;
+				case VoiceCommandAction.SkipToothTwenty:
+					SkipTooth(20);
+					break;
+				case VoiceCommandAction.SkipToothTwentyOne:
+					SkipTooth(21);
+					break;
+				case VoiceCommandAction.SkipToothTwentyTwo:
+					SkipTooth(22);
+					break;
+				case VoiceCommandAction.SkipToothTwentyThree:
+					SkipTooth(23);
+					break;
+				case VoiceCommandAction.SkipToothTwentyFour:
+					SkipTooth(24);
+					break;
+				case VoiceCommandAction.SkipToothTwentyFive:
+					SkipTooth(25);
+					break;
+				case VoiceCommandAction.SkipToothTwentySix:
+					SkipTooth(26);
+					break;
+				case VoiceCommandAction.SkipToothTwentySeven:
+					SkipTooth(27);
+					break;
+				case VoiceCommandAction.SkipToothTwentyEight:
+					SkipTooth(28);
+					break;
+				case VoiceCommandAction.SkipToothTwentyNine:
+					SkipTooth(29);
+					break;
+				case VoiceCommandAction.SkipToothThirty:
+					SkipTooth(30);
+					break;
+				case VoiceCommandAction.SkipToothThirtyOne:
+					SkipTooth(31);
+					break;
+				case VoiceCommandAction.SkipToothThirtyTwo:
+					SkipTooth(32);
+					break;
+				case VoiceCommandAction.SkipCurrentTooth:
+					SkipTooth(_curLocation.ToothNum);
+					break;
 				default:
 					break;
 			}
@@ -504,6 +613,79 @@ namespace VoiceCommand {
 			if(_prevLocation != null && _prevLocation.ToothNum != _curLocation.ToothNum) {
 				SayResponse("Tooth "+_curLocation.ToothNum);
 			}
+		}
+
+		private void SkipTooth(int toothNum) {
+			IsListening=false;
+			if(!VoiceMsgBox.Show("Mark this tooth as skipped?",MsgBoxButtons.YesNo)) {
+				IsListening=true;
+				return;
+			}
+			IsListening=true;
+			Point curSpot=new Point(_curCell.X,_curCell.Y);
+			bool radioRightChecked=((RadioButton)_formPerio.Controls.Find("radioRight",true)[0]).Checked;
+			_gridP.SaveCurExam(_perioExam);
+			int selectedExam=_selectedExam;
+			List<int> listSkippedTeeth=new List<int>();//int 1-32
+			if(PerioExams.ListExams.Count > 0) {
+				//set skipped teeth based on the last exam in the list: 
+				listSkippedTeeth=PerioMeasures.GetSkipped(PerioExams.ListExams[PerioExams.ListExams.Count-1].PerioExamNum);
+			}
+			//For patient's first perio chart, any teeth marked missing are automatically marked skipped.
+			if(PerioExams.ListExams.Count==0 || PrefC.GetBool(PrefName.PerioSkipMissingTeeth)) {
+				for(int i=0;i<_listMissingTeeth.Count;i++) {
+					if(_listMissingTeeth[i].CompareTo("A") >= 0 && _listMissingTeeth[i].CompareTo("Z") <= 0) {//if is a letter (not a number)
+						continue;//Skipped teeth are only recorded by tooth number within the perio exam.
+					}
+					int tooth=PIn.Int(_listMissingTeeth[i]);
+					//Check if this tooth has had an implant done AND the office has the preference to SHOW implants
+					if(PrefC.GetBool(PrefName.PerioTreatImplantsAsNotMissing) && ContrPerio.IsImplant(tooth)) {
+						listSkippedTeeth.Remove(tooth);//Remove the tooth from the list of skipped teeth if it exists.
+						continue;//We do note want to add it back to the list below.
+					}
+					//This tooth is missing and we know it is not an implant OR the office has the preference to ignore implants.
+					//Simply add it to our list of skipped teeth.
+					listSkippedTeeth.Add(tooth);
+				}
+			}
+			if(!listSkippedTeeth.Contains(toothNum)) {
+				listSkippedTeeth.Add(toothNum);
+			}
+			PerioMeasures.SetSkipped(_perioExam.PerioExamNum,listSkippedTeeth);
+			MethodInfo dynMethod=_formPerio.GetType().GetMethod("RefreshListExams",
+				BindingFlags.NonPublic|BindingFlags.Instance);
+			dynMethod.Invoke(_formPerio,new object[] { });
+			((ListBox)_formPerio.Controls.Find("listExams",true)[0]).SelectedIndex=selectedExam;
+			dynMethod=_formPerio.GetType().GetMethod("FillGrid",
+				BindingFlags.NonPublic|BindingFlags.Instance);
+			dynMethod.Invoke(_formPerio,new object[] { });
+			_curCell=curSpot;
+			if(radioRightChecked) {
+				ClickAdvanceRight();
+			}
+			//else it will be left by default
+			if(_curLocation.ToothNum==toothNum) {//Skipping the current tooth
+				AdvanceToNextTooth();
+			}
+		}
+
+		private void AdvanceToNextTooth() {
+			
+			int origToothNum=_curLocation.ToothNum;
+			bool radioRightChecked=((RadioButton)_formPerio.Controls.Find("radioRight",true)[0]).Checked;
+			SendKeys.Send(radioRightChecked ? "{LEFT}" : "{RIGHT}");
+			if(origToothNum != GetPerioLocation().ToothNum) {
+				return;
+			}
+			SendKeys.Send(radioRightChecked ? "{LEFT}" : "{RIGHT}");
+			if (origToothNum != GetPerioLocation().ToothNum) {
+				return;
+			}
+			SendKeys.Send(radioRightChecked ? "{LEFT}" : "{RIGHT}");
+			if (origToothNum != GetPerioLocation().ToothNum) {
+				return;
+			}
+			//Say new tooth
 		}
 
 		private void GoToMobility() {
