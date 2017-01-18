@@ -24,7 +24,7 @@ SourceFiles=SourceFiles
 InstallPrompt=
 DisplayLicense=
 FinishMessage=
-TargetName=C:\development\OPEN DENTAL SUBVERSION\VoiceCommand\VoiceCommandInstaller\Release Files\VoiceCommandInstaller.exe
+TargetName=C:\development\OpenDentalVoice\VoiceCommandInstaller\Release Files\VoiceCommandInstaller.exe
 FriendlyName=Voice Command Installer
 AppLaunched=VoiceCommandInstaller.exe
 PostInstallCmd=<None>
@@ -38,7 +38,7 @@ FILE4="Oracle.DataAccess.dll"
 FILE5="VoiceCommand.dll"
 FILE6="VoiceCommandInstaller.exe"
 [SourceFiles]
-SourceFiles0=C:\development\OPEN DENTAL SUBVERSION\VoiceCommand\VoiceCommandInstaller\Release Files\
+SourceFiles0=C:\development\OpenDentalVoice\VoiceCommandInstaller\Release Files\
 [SourceFiles0]
 %FILE0%=
 %FILE1%=
