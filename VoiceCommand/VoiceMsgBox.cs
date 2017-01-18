@@ -1,12 +1,4 @@
 ﻿using OpenDental;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VoiceCommand {
@@ -48,7 +40,7 @@ namespace VoiceCommand {
 		}
 		private FormMsgBox _formMsgBox;
 		
-		///<summary>This is a more efficient version of the MS MessageBox. It also automates the language translation. Returns true if result is OK or Yes.</summary>
+		///<summary>Displays a message box with the text and reads the text aloud. The user can respond by clicking buttons or answering by voice.</summary>
 		public static bool Show(string text,MsgBoxButtons buttons) {
 			VoiceMsgBox voiceBox=new VoiceMsgBox();
 			voiceBox._formMsgBox=new FormMsgBox(text,buttons);
