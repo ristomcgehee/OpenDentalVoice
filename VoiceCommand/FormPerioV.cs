@@ -626,12 +626,12 @@ namespace VoiceCommand {
 			bool radioRightChecked=((RadioButton)_formPerio.Controls.Find("radioRight",true)[0]).Checked;
 			if(Assembly.GetAssembly(typeof(FormPerio)).GetName().Version >= new Version(16,4)) {
 				//_gridP.SaveCurExam(_perioExam);
-				MethodInfo method=_gridP.GetType().GetMethod("SaveCurExam",BindingFlags.Public|BindingFlags.Instance);
+				MethodInfo method=_gridP.GetType().GetMethod(nameof(ContrPerio.SaveCurExam),BindingFlags.Public|BindingFlags.Instance);
 				method.Invoke(_gridP,new object[] { _perioExam });
 			}
 			else {//16.3
 				//_gridP.SaveCurExam(_perioExam.PerioExamNum);
-				MethodInfo method=_gridP.GetType().GetMethod("SaveCurExam",BindingFlags.Public|BindingFlags.Instance);
+				MethodInfo method=_gridP.GetType().GetMethod(nameof(ContrPerio.SaveCurExam),BindingFlags.Public|BindingFlags.Instance);
 				method.Invoke(_gridP,new object[] { _perioExam.PerioExamNum });
 			}
 			int selectedExam=_selectedExam;
