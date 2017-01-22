@@ -617,7 +617,7 @@ namespace VoiceCommand {
 
 		private void SkipTooth(int toothNum) {
 			IsListening=false;
-			if(!VoiceMsgBox.Show("Mark this tooth as skipped?",MsgBoxButtons.YesNo)) {
+			if(!VoiceMsgBox.Show("Mark tooth "+toothNum+" as skipped?",MsgBoxButtons.YesNo)) {
 				IsListening=true;
 				return;
 			}
