@@ -47,6 +47,7 @@ namespace VoiceCommand {
 			VoiceMsgBoxSpeech voiceBoxSpeech=new VoiceMsgBoxSpeech(voiceBox._formMsgBox);
 			voiceBoxSpeech.SayText();
 			voiceBox._formMsgBox.ShowDialog();
+			voiceBoxSpeech.Dispose();
 			if(voiceBox._formMsgBox.DialogResult==DialogResult.OK) {
 				return true;
 			}

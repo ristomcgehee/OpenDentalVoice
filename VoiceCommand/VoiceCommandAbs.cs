@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VoiceCommand {
-	public abstract class VoiceCommandAbs {
+	public abstract class VoiceCommandAbs:IDisposable {
 		private SpeechRecognitionEngine _recEngine=new SpeechRecognitionEngine();
 		private SpeechSynthesizer _synth=new SpeechSynthesizer();
 		protected abstract VoiceCommandArea ProgramArea { get; }
@@ -144,6 +144,11 @@ namespace VoiceCommand {
 
 		protected void butMic_Click(object sender,EventArgs e) {
 			IsListening=!IsListening;
+		}
+
+		public void Dispose() {
+			_recEngine.Dispose();
+			_synth.Dispose();
 		}
 	}
 }
