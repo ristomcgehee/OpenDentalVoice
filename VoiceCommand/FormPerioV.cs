@@ -624,29 +624,21 @@ namespace VoiceCommand {
 			IsListening=true;
 			Point curSpot=new Point(_curCell.X,_curCell.Y);
 			bool radioRightChecked=((RadioButton)_formPerio.Controls.Find("radioRight",true)[0]).Checked;
-			_gridP.SaveCurExam(_perioExam);
+			if(Assembly.GetAssembly(typeof(FormPerio)).GetName().Version >= new Version(16,4)) {
+				//_gridP.SaveCurExam(_perioExam);
+				MethodInfo method=_gridP.GetType().GetMethod("SaveCurExam",BindingFlags.Public|BindingFlags.Instance);
+				method.Invoke(_gridP,new object[] { _perioExam });
+			}
+			else {//16.3
+				//_gridP.SaveCurExam(_perioExam.PerioExamNum);
+				MethodInfo method=_gridP.GetType().GetMethod("SaveCurExam",BindingFlags.Public|BindingFlags.Instance);
+				method.Invoke(_gridP,new object[] { _perioExam.PerioExamNum });
+			}
 			int selectedExam=_selectedExam;
 			List<int> listSkippedTeeth=new List<int>();//int 1-32
 			if(PerioExams.ListExams.Count > 0) {
 				//set skipped teeth based on the last exam in the list: 
 				listSkippedTeeth=PerioMeasures.GetSkipped(PerioExams.ListExams[PerioExams.ListExams.Count-1].PerioExamNum);
-			}
-			//For patient's first perio chart, any teeth marked missing are automatically marked skipped.
-			if(PerioExams.ListExams.Count==0 || PrefC.GetBool(PrefName.PerioSkipMissingTeeth)) {
-				for(int i=0;i<_listMissingTeeth.Count;i++) {
-					if(_listMissingTeeth[i].CompareTo("A") >= 0 && _listMissingTeeth[i].CompareTo("Z") <= 0) {//if is a letter (not a number)
-						continue;//Skipped teeth are only recorded by tooth number within the perio exam.
-					}
-					int tooth=PIn.Int(_listMissingTeeth[i]);
-					//Check if this tooth has had an implant done AND the office has the preference to SHOW implants
-					if(PrefC.GetBool(PrefName.PerioTreatImplantsAsNotMissing) && ContrPerio.IsImplant(tooth)) {
-						listSkippedTeeth.Remove(tooth);//Remove the tooth from the list of skipped teeth if it exists.
-						continue;//We do note want to add it back to the list below.
-					}
-					//This tooth is missing and we know it is not an implant OR the office has the preference to ignore implants.
-					//Simply add it to our list of skipped teeth.
-					listSkippedTeeth.Add(tooth);
-				}
 			}
 			if(!listSkippedTeeth.Contains(toothNum)) {
 				listSkippedTeeth.Add(toothNum);
