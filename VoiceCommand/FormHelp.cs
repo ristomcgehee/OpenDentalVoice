@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace VoiceCommand {
 		}
 
 		private void FormHelp_Load(object sender,EventArgs e) {
+			labelVersion.Text+=" "+Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			labelCommandList.Text="-"+string.Join("\r\n-",_listCommands);
 		}
 	}
