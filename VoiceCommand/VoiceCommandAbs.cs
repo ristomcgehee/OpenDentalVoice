@@ -29,28 +29,29 @@ namespace VoiceCommand {
 		protected bool IsGivingFeedback=true;
 		private Label labelListening;
 		private bool _isListening;
+		private bool _initializationFailed;
 		
 		public virtual void InitializeListening(bool includeGlobal=true) {
-			Choices commands=new Choices();
-			commands.Add(CommandList.Commands.Where(x => x.Area==ProgramArea || (includeGlobal && x.Area==VoiceCommandArea.Global))
+			Choices commandChoices=new Choices();
+			commandChoices.Add(CommandList.Commands.Where(x => x.Area==ProgramArea || (includeGlobal && x.Area==VoiceCommandArea.Global))
 				.SelectMany(x => x.Commands).ToArray());
-			// Create a GrammarBuilder object and append the Choices object.
-			GrammarBuilder gb=new GrammarBuilder();
-			gb.Append(commands);
-			// Create the Grammar instance and load it into the speech recognition engine.
-			Grammar g=new Grammar(gb);
-			_recEngine=new SpeechRecognitionEngine();
-			_recEngine.LoadGrammarAsync(g);
-			_recEngine.SetInputToDefaultAudioDevice();
-			_recEngine.RecognizeAsync(RecognizeMode.Multiple);
-			_recEngine.SpeechRecognized+=RecEngine_SpeechRecognized;
 			try {
+				// Create a GrammarBuilder object and append the Choices object.
+				GrammarBuilder gb=new GrammarBuilder();
+				gb.Append(commandChoices);
+				// Create the Grammar instance and load it into the speech recognition engine.
+				Grammar g=new Grammar(gb);
+				_recEngine=new SpeechRecognitionEngine();
+				_recEngine.LoadGrammarAsync(g);
+				_recEngine.SetInputToDefaultAudioDevice();
+				_recEngine.RecognizeAsync(RecognizeMode.Multiple);
+				_recEngine.SpeechRecognized+=RecEngine_SpeechRecognized;
 				_synth.SetOutputToDefaultAudioDevice();
+				_synth.SelectVoiceByHints(VoiceGender.Female);
 			}
 			catch {
-				MessageBox.Show("This computer's audio input is not capable of speech recognition. Try setting up a different microphone on this computer.");
+				_initializationFailed=true;
 			}
-			_synth.SelectVoiceByHints(VoiceGender.Female);
 		}
 
 		protected virtual void RecEngine_SpeechRecognized(object sender,SpeechRecognizedEventArgs e) {
@@ -143,6 +144,10 @@ namespace VoiceCommand {
 		}
 
 		protected void butMic_Click(object sender,EventArgs e) {
+			if(_initializationFailed) {
+				MessageBox.Show("This computer's audio input is not capable of speech recognition. Try setting up a different microphone on this computer.");
+				return;
+			}
 			IsListening=!IsListening;
 		}
 
