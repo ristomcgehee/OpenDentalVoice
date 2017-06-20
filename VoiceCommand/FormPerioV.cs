@@ -623,12 +623,12 @@ namespace VoiceCommand {
 				default:
 					break;
 			}
-			SayResponse(response);
+			SayResponseAsync(response);
 			_prevLocation=_curLocation.Copy();
 			_curLocation=GetPerioLocation();
 			SetAutoAdvance();
 			if(_prevLocation != null && _prevLocation.ToothNum != _curLocation.ToothNum) {
-				SayResponse("Tooth "+_curLocation.ToothNum);
+				SayResponseAsync("Tooth "+_curLocation.ToothNum);
 			}
 		}
 
